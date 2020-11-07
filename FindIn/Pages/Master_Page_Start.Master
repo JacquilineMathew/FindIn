@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_Page_Start.Master.cs" Inherits="FindIn.Pages.Master_Page1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script type="text/javascript">
+        var images = ['../images/background2.jpg',
+            '../images/background3.jpg'
+        ];
+
+        var img = document.getElementById("background_pics");
+
+        function displayImage(x) {
+            document.getElementById("background_pics").style.backgroundImage = "url(" + images[x] + ")";
+            document.getElementById("background_pics").style.backgroundRepeat = "no-repeat";
+        }
+        function startTimer() {
+            var x = 0;
+            displayImage(x);
+            setInterval(function () {
+                x = x + 1 >= images.length ? 0 : x + 1;
+                displayImage(x);
+            }, 10000);
+        }    
+    </script>
+    <title>FindIn</title>
+    <script type="text/javascript" src="../js/findIn.js"></script>
+     <link rel="icon" type="image/ico" href="../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../Styles/site.css" />
+</head>
+<body  onload="startTimer()">
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts></Scripts>
+        </asp:ScriptManager>
+
+        <header>
+            <!-- Defining the header section of the page with the appropriate tag -->
+            <div>
+                <img src="../images/findIn.png" alt="FindIn Logo" height="55" />
+                <h1>FindIn</h1>
+                <%--<h3>Make Life Easy</h3>--%>
+
+
+                
+            </div>
+        </header>
+        <div >
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>   
+      </div>
+     
+            <footer>   
+                <p style="color:#79205d;">Copyright 2020 - FindIn</p>
+            </footer>
+        
+
+    </form>
+</body>
+</html>
