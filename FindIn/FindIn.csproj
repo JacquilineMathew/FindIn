@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxPro.2, Version=6.10.6.2, Culture=neutral, PublicKeyToken=4735ae9824c7d3ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxPro.2.6.10.6.2\lib\net20\AjaxPro.2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -68,11 +71,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\findIn.js" />
+    <Content Include="js\jquery-3.5.1.js" />
+    <Content Include="js\jquery-3.5.1.min.js" />
     <Content Include="Pages\Admin.aspx" />
     <Content Include="Pages\Employer.aspx" />
     <Content Include="Pages\JobSeeker.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Register.aspx" />
+    <Content Include="js\jquery-1.6.2.min.js" />
+    <Content Include="js\jquery.json-2.2.min.js" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,6 +116,7 @@
     </Compile>
     <Compile Include="Pages\Master_Page.Master.cs">
       <DependentUpon>Master_Page.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Master_Page.Master.designer.cs">
       <DependentUpon>Master_Page.Master</DependentUpon>
