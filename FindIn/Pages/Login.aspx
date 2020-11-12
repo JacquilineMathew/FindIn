@@ -27,8 +27,7 @@
                    <td>
                        <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox> 
                        <asp:Label ID="lblUserNameMessage" runat="server" ForeColor="Red" ></asp:Label>
-                   </td>
-                       </td>
+                   </td>                      
                </tr>
                 <tr>
                    <td align="right">

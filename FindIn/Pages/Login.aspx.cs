@@ -46,7 +46,7 @@ namespace FindIn.Pages
 
                 int result = (int)returnParameter.Value;
                 if (result == 1)
-                    Response.Redirect("~/Pages/Employer.aspx",false);
+                    Response.Redirect("~/Pages/CreateJob.aspx",false);
                 else if (result == 3)
                 {
                     lblMessage.Text = "Account is not confirmed yet!";
@@ -54,6 +54,10 @@ namespace FindIn.Pages
                 else if (result == 2)
                 {
                     lblMessage.Text = "Invalid Password!";
+                }
+                else if (result == 6)
+                {
+                    Response.Redirect("~/Pages/CreateProfile.aspx", false);
                 }
                 else
                 {

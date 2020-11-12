@@ -11,7 +11,7 @@ namespace FindIn.Pages
 {
 
 
-    public partial class JobSeeker
+    public partial class ChooseJobSeeker
     {
     }
 }
