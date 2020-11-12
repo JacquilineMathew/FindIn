@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Master_Page.Master" AutoEventWireup="true" CodeBehind="CreateJob.aspx.cs" Inherits="FindIn.Pages.CreateJob" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Master_Page.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="CreateJob.aspx.cs" Inherits="FindIn.Pages.CreateJob" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <div >
+     <div>
                 <nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
                      <ul>
                       

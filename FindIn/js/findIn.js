@@ -27,41 +27,7 @@
 }
 
 
-function GetCities() {
-    Id = document.getElementById('MainContent_ddlProvince').value;
-    PageMethods.GetCities(Id, Success, Failure);
-}
-
-function Success(result) {
-    var data = document.getElementById('MainContent_ddlCity');
-    if (document.getElementById('MainContent_ddlProvince').value > 0) {
-        data.options.length = 0;
-        var opt;
-        opt = document.createElement('option');
-        opt.text = 'Select ';
-        opt.value = 0;
-        data.options.add(opt);
-
-        if (result.length > 0) {
-            for (var i = 0; i < (result.length); i++) {
-
-                opt = document.createElement('option');
-                opt.text = result[i].Text;
-                opt.value = result[i].Value;
-                data.add(opt);
-            }
-            data.selectedIndex = 0;
-        }
-
-    }
-    return true;
-}
-
-function Failure(error) {
-    alert(error);
-    return false;
-}
-
+// Validating Registration Page
 function RegisterValidation() {
     var flag = 0;
     if (document.getElementById('MainContent_txtUserName').value == '') {
@@ -146,7 +112,7 @@ function RegisterValidation() {
     if (document.getElementById('MainContent_ddlProvince').value > 0) {
         document.getElementById('MainContent_lblProvinceMessage').style.display = "none";
         document.getElementById('MainContent_lblProvinceMessage').innerHTML = '';
-        document.getElementById('MainContent_hdnProvince').value = document.getElementById('MainContent_ddlProvince').value ;
+        document.getElementById('MainContent_hdnProvince').value = document.getElementById('MainContent_ddlProvince').value;
     }
     else {
         document.getElementById('MainContent_lblProvinceMessage').style.display = "block";
@@ -191,6 +157,144 @@ function RegisterValidation() {
 
 }
 
+//To fill cities dropdown for  the selected Province
+function GetCities() {
+    var Id = document.getElementById('MainContent_ddlProvince').value;
+    PageMethods.GetCities(Id, Success, Failure);
+}
+
+function Success(result) {
+    var data = document.getElementById('MainContent_ddlCity');
+    if (document.getElementById('MainContent_ddlProvince').value > 0) {
+        data.options.length = 0;
+        var opt;
+        opt = document.createElement('option');
+        opt.text = 'Select ';
+        opt.value = 0;
+        data.options.add(opt);
+
+        if (result.length > 0) {
+            for (var i = 0; i < (result.length); i++) {
+
+                opt = document.createElement('option');
+                opt.text = result[i].Text;
+                opt.value = result[i].Value;
+                data.add(opt);
+            }
+            data.selectedIndex = 0;
+        }
+
+    }
+    return true;
+}
+
+function Failure(error) {
+    alert(error);
+    return false;
+}
+
+
+// To fill skills and benefits for Job Type-------------------------------------------
+function GetJobTypeDetails() {
+    var Id = document.getElementById('MainContent_ddlJobType').value;
+    PageMethods.GetSkills(Id, SuccessJobType, Failure);
+    PageMethods.GetRolesByJobType(Id, SuccessJobRoles, Failure);
+   
+}
+
+function SuccessJobType(data) {
+    var container = document.getElementById('MainContent_pnlskillresult');
+    document.getElementById('MainContent_pnlskillresult').innerHTML = '';
+    //to add checkbox dynamically to panel
+    for (var i = 0; i < data.length; i++) {
+       
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.name = ("chk" + data[i].Text);
+        checkbox.value = data[i].Value;
+        checkbox.id = ("chk" + i);
+        var label = document.createElement('label')
+        label.htmlFor = ("lbl" + i);
+        label.appendChild(document.createTextNode(data[i].Text));
+
+        container.appendChild(checkbox);
+        container.appendChild(label);
+        container.appendChild(document.createElement("br"));
+
+        //if (document.getElementById('mastercontent_hfSkillIds') != '') {
+        //    var careerIds = document.getElementById('mastercontent_hfIds').value.split(',');
+        //    for (var j = 0; j < careerIds.length; j++) {
+        //        if (checkbox.value == careerIds[j]) {
+        //            checkbox.checked = true;
+        //        }
+        //    }
+        //}
+    }
+}
 
 
 
+function SuccessJobRoles(result) {
+    var data = document.getElementById('MainContent_ddlRole');
+    if (document.getElementById('MainContent_ddlJobType').value > 0) {
+        data.options.length = 0;
+        var opt;
+        opt = document.createElement('option');
+        opt.text = 'Select ';
+        opt.value = 0;
+        data.options.add(opt);
+
+        if (result.length > 0) {
+            for (var i = 0; i < (result.length); i++) {
+
+                opt = document.createElement('option');
+                opt.text = result[i].Text;
+                opt.value = result[i].Value;
+                data.add(opt);
+            }
+            data.selectedIndex = 0;
+        }
+
+    }
+    return true;
+}
+
+//----------------------------------------------------------------------------------------
+
+// Fill Benefits --------------------------------------------------------------------------
+
+function GetBenefits() {
+    PageMethods.GetBenefitsOfJobs(SuccessBenefits, Failure);
+}
+
+function SuccessBenefits(data) {
+    var container = document.getElementById('MainContent_pnlbenefitresult');
+    document.getElementById('MainContent_pnlbenefitresult').innerHTML = '';
+    //to add checkbox dynamically to panel
+    for (var i = 0; i < data.length; i++) {
+
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.name = ("chk" + data[i].Text);
+        checkbox.value = data[i].Value;
+        checkbox.id = ("chk" + i);
+        var label = document.createElement('label')
+        label.htmlFor = ("lbl" + i);
+        label.appendChild(document.createTextNode(data[i].Text));
+
+        container.appendChild(checkbox);
+        container.appendChild(label);
+        container.appendChild(document.createElement("br"));
+
+        //if (document.getElementById('mastercontent_hfSkillIds') != '') {
+        //    var careerIds = document.getElementById('mastercontent_hfIds').value.split(',');
+        //    for (var j = 0; j < careerIds.length; j++) {
+        //        if (checkbox.value == careerIds[j]) {
+        //            checkbox.checked = true;
+        //        }
+        //    }
+        //}
+    }
+}
+
+//-------------------------------------------------------------------------------

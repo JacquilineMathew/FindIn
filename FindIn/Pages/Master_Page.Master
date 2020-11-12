@@ -7,10 +7,11 @@
     <title>FindIn</title>
      <link rel="icon" type="image/ico" href="../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../Styles/main.css" />
+    <script src="../js/findIn.js"></script>
 </head>
 <body  >
     <form id="form1" runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                
             </Scripts>
