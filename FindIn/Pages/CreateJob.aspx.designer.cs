@@ -96,6 +96,15 @@ namespace FindIn.Pages
         protected global::System.Web.UI.WebControls.Label lblSkillsMessage;
 
         /// <summary>
+        /// hdnskills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnskills;
+
+        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace FindIn.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRoleMessage;
+
+        /// <summary>
+        /// hdnRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnRole;
 
         /// <summary>
         /// Label5 control.
@@ -213,6 +231,15 @@ namespace FindIn.Pages
         protected global::System.Web.UI.WebControls.Label lblCityMessage;
 
         /// <summary>
+        /// hdnCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCity;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -240,6 +267,60 @@ namespace FindIn.Pages
         protected global::System.Web.UI.WebControls.Label lblStreetMessage;
 
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// txtPostCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPostCode;
+
+        /// <summary>
+        /// lblPostCodeMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPostCodeMessage;
+
+        /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+
+        /// <summary>
+        /// txtPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+
+        /// <summary>
+        /// lblPhoneNumberMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneNumberMessage;
+
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -258,13 +339,22 @@ namespace FindIn.Pages
         protected global::System.Web.UI.WebControls.Panel pnlbenefitresult;
 
         /// <summary>
-        /// lblPostCodeMessage control.
+        /// lblBenefitMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPostCodeMessage;
+        protected global::System.Web.UI.WebControls.Label lblBenefitMessage;
+
+        /// <summary>
+        /// hdnBenefits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnBenefits;
 
         /// <summary>
         /// btnCreate control.

@@ -212,7 +212,7 @@ function SuccessJobType(data) {
         checkbox.type = "checkbox";
         checkbox.name = ("chk" + data[i].Text);
         checkbox.value = data[i].Value;
-        checkbox.id = ("chk" + i);
+        checkbox.id = ("chk" + i);        
         var label = document.createElement('label')
         label.htmlFor = ("lbl" + i);
         label.appendChild(document.createTextNode(data[i].Text));
@@ -259,7 +259,6 @@ function SuccessJobRoles(result) {
     return true;
 }
 
-//----------------------------------------------------------------------------------------
 
 // Fill Benefits --------------------------------------------------------------------------
 
@@ -297,4 +296,160 @@ function SuccessBenefits(data) {
     }
 }
 
-//-------------------------------------------------------------------------------
+
+
+// Validation of CreateJob page----------------------------------------------------
+
+function CreateValidation() {
+    var flag = 0;
+   
+    if (document.getElementById('MainContent_txtCompany').value == ' ') {
+        document.getElementById('MainContent_lblCompanyMessage').innerHTML = 'Please enter the company name.';
+        document.getElementById('MainContent_lblCompanyMessage').style.display = "block";
+        document.getElementById('MainContent_txtCompany').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblCompanyMessage').innerHTML = ' ';
+        document.getElementById('MainContent_lblCompanyMessage').style.display = "none";
+    }    
+        
+    if (document.getElementById('MainContent_ddlJobType').value > 0) {
+        document.getElementById('MainContent_lblJobTypeMessage').style.display = "none";
+        document.getElementById('MainContent_lblJobTypeMessage').innerHTML = '';
+  }
+    else {
+        document.getElementById('MainContent_lblJobTypeMessage').style.display = "block";
+        document.getElementById('MainContent_lblJobTypeMessage').innerHTML = 'Please choose a job type.';
+        document.getElementById('MainContent_ddlJobType').focus();
+        flag = 1;
+    }
+    if (document.getElementById('MainContent_txtFromSalary').value == ' ') {
+        document.getElementById('MainContent_lblSalaryMessage').innerHTML = 'Please give the salary range.';
+        document.getElementById('MainContent_lblSalaryMessage').style.display = "block";
+        document.getElementById('MainContent_txtFromSalary').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblSalaryMessage').innerHTML = ' ';
+        document.getElementById('MainContent_lblSalaryMessage').style.display = "none";
+    }   
+    if (document.getElementById('MainContent_txtToSalary').value == ' ') {
+        document.getElementById('MainContent_lblSalaryMessage').innerHTML = 'Please give the salary range.';
+        document.getElementById('MainContent_lblSalaryMessage').style.display = "block";
+        document.getElementById('MainContent_txtToSalary').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblSalaryMessage').innerHTML = ' ';
+        document.getElementById('MainContent_lblSalaryMessage').style.display = "none";
+    }   
+    if (document.getElementById('MainContent_ddlProvince').value > 0) {
+        document.getElementById('MainContent_lblProvinceMessage').style.display = "none";
+        document.getElementById('MainContent_lblProvinceMessage').innerHTML = '';
+   }
+    else {
+        document.getElementById('MainContent_lblProvinceMessage').style.display = "block";
+        document.getElementById('MainContent_lblProvinceMessage').innerHTML = 'Please choose a province.';
+        document.getElementById('MainContent_ddlProvince').focus();
+        flag = 1;
+    }
+    if (document.getElementById('MainContent_ddlCity').value > 0) {
+        document.getElementById('MainContent_lblCityMessage').style.display = "none";
+        document.getElementById('MainContent_lblCityMessage').innerHTML = '';
+        document.getElementById('MainContent_hdnCity').value = document.getElementById('MainContent_ddlCity').value;
+    }
+    else {
+        document.getElementById('MainContent_lblCityMessage').style.display = "block";
+        document.getElementById('MainContent_lblCityMessage').innerHTML = 'Please choose a city.';
+        document.getElementById('MainContent_ddlCity').focus();
+        flag = 1;
+    }
+    if (document.getElementById('MainContent_txtStreet').value == '') {
+        document.getElementById('MainContent_lblStreetMessage').innerHTML = 'Please enter the street name name.';
+        document.getElementById('MainContent_lblStreetMessage').style.display = "block";
+        document.getElementById('MainContent_txtStreet').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblStreetMessage').innerHTML = '';
+        document.getElementById('MainContent_lblStreetMessage').style.display = "none";
+    }
+    if (document.getElementById('MainContent_txtPostCode').value == '') {
+        document.getElementById('MainContent_lblPostCodeMessage').innerHTML = 'Please enter the post code.';
+        document.getElementById('MainContent_lblPostCodeMessage').style.display = "block";
+        document.getElementById('MainContent_txtPostCode').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblPostCodeMessage').innerHTML = '';
+        document.getElementById('MainContent_lblPostCodeMessage').style.display = "none";
+    }
+    if (document.getElementById('MainContent_txtPhoneNumber').value == '') {
+        document.getElementById('MainContent_lblPhoneNumberMessage').innerHTML = 'Please enter the phone number.';
+        document.getElementById('MainContent_lblPhoneNumberMessage').style.display = "block";
+        document.getElementById('MainContent_txtPhoneNumber').focus();
+        flag = 1;
+    }
+    else {
+        document.getElementById('MainContent_lblPhoneNumberMessage').innerHTML = '';
+        document.getElementById('MainContent_lblPhoneNumberMessage').style.display = "none";
+    }
+    if (document.getElementById('MainContent_ddlRole').value > 0) {
+        document.getElementById('MainContent_lblRoleMessage').innerHTML = ' ';
+        document.getElementById('MainContent_lblRoleMessage').style.display = "none";
+        document.getElementById('MainContent_hdnRole').value = document.getElementById('MainContent_ddlRole').value;
+
+    }
+    else {
+        document.getElementById('MainContent_lblRoleMessage').innerHTML = 'Please choose a role.';
+        document.getElementById('MainContent_lblRoleMessage').style.display = "block";
+        document.getElementById('MainContent_ddlRole').focus();
+        flag = 1;
+      
+    }    
+   
+    if (flag == 1) {
+        return false;
+    }
+    else {
+        Save();
+    }
+}
+
+
+
+
+//-------------------------------------------------------------------------------------------
+
+function Save() {
+    var parent = document.getElementById('MainContent_pnlskillresult');
+    var childs = parent.childNodes;
+    var txt = "";
+    var i;
+    document.getElementById('MainContent_hdnskills').value = '';
+    for (i = 0; i < childs.length; i++) {
+         if (childs[i].checked == true) {          
+            
+            document.getElementById('MainContent_hdnskills').value =
+                document.getElementById('MainContent_hdnskills').value + childs[i].value + ",";
+  
+        }
+    }
+    document.getElementById('MainContent_hdnRole').value = document.getElementById('MainContent_ddlRole').value;
+    document.getElementById('MainContent_hdnCity').value = document.getElementById('MainContent_ddlCity').value;
+    var parent = document.getElementById('MainContent_pnlbenefitresult');
+    var childs = parent.childNodes;
+    var txt = "";
+    var i;
+    document.getElementById('MainContent_hdnBenefits').value = '';
+    for (i = 0; i < childs.length; i++) {
+        if (childs[i].checked == true) {
+
+            document.getElementById('MainContent_hdnBenefits').value =
+                document.getElementById('MainContent_hdnBenefits').value + childs[i].value + ",";
+
+        }
+    }
+    alert(document.getElementById('MainContent_hdnBenefits').value);
+}

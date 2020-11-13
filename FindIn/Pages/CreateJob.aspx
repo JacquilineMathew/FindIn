@@ -39,6 +39,7 @@
                     <td>
                         <asp:Panel ID="pnlskillresult" runat="server"></asp:Panel>
                         <asp:Label ID="lblSkillsMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="hdnskills" runat="server" />
                     </td>
                 </tr>       
              <tr>
@@ -49,6 +50,7 @@
                            <asp:DropDownList ID="ddlRole" runat="server">
                         </asp:DropDownList>
                         <asp:Label ID="lblRoleMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="hdnRole" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -79,6 +81,7 @@
                         <asp:DropDownList ID="ddlCity" runat="server" Width="100px">
                         </asp:DropDownList>
                         <asp:Label ID="lblCityMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="hdnCity" runat="server" />
                     </td>
                 </tr>
              <tr>
@@ -90,13 +93,44 @@
                         <asp:Label ID="lblStreetMessage" runat="server" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>
+            <tr>
+                    <td align="right">
+                        <asp:Label ID="Label4" runat="server" Text="Post Code:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
+                       
+                        <asp:Label ID="lblPostCodeMessage" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
+                </tr>
+            <tr>
+                    <td align="right">
+                        <asp:Label ID="Label8" runat="server" Text="Phone Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                       
+                        <asp:Label ID="lblPhoneNumberMessage" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
+                </tr> 
+<%--            <tr>
+                    <td align="right">
+                        <asp:Label ID="Label9" runat="server" Text="Additional Phone Number:"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtAdditionalNumber" runat="server"></asp:TextBox>
+                       
+                        <asp:Label ID="lblAdditionalNumberMessage" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
+                </tr>--%> 
                 <tr>
                     <td align="right">
                         <asp:Label ID="Label3" runat="server" Text="Benefits:"></asp:Label>
                     </td>
                     <td>
                          <asp:Panel ID="pnlbenefitresult" runat="server"></asp:Panel>
-                        <asp:Label ID="lblPostCodeMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblBenefitMessage" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="hdnBenefits" runat="server" />
                     </td>
                 </tr>
              
@@ -111,5 +145,7 @@
                     </td>
                 </tr>  
            </table>
- 
+    <footer>   
+                <p style="color:#79205d;">Copyright 2020 - FindIn</p>
+            </footer>
 </asp:Content>

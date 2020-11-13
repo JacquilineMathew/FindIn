@@ -209,15 +209,13 @@ figure {
 
 /* Footer styling: */
 
-footer {
-    margin-bottom: 30px;
+footer {    
     text-align: center;
     font-size: 0.825em;
 }
 
 
     footer p {
-        margin-bottom: -2.5em;
         position: relative;
     }
 

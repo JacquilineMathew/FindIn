@@ -99,7 +99,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2" align="middle">
                         <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>

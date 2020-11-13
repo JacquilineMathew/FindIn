@@ -11,4 +11,7 @@
                          </ul>                
             </nav>
         </div>
+       <footer>   
+                <p style="color:#79205d;">Copyright 2020 - FindIn</p>
+            </footer>
 </asp:Content>
