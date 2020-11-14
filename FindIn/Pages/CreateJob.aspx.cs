@@ -257,5 +257,47 @@ namespace FindIn.Pages
                 throw ex;
             }
         }
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection("Data Source=(local)\\sqlexpress19;Initial Catalog= FindIn;Trusted_Connection=true;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CreateJob"; //Stored Procedure Name
+
+                cmd.Parameters.Add("@company", SqlDbType.NVarChar).Value = txtCompany.Text.Trim();
+                cmd.Parameters.Add("@jobType", SqlDbType.Int).Value = Convert.ToInt32(ddlJobType.SelectedValue);
+                cmd.Parameters.Add("@skills", SqlDbType.NVarChar).Value = hdnskills.Value;
+                cmd.Parameters.Add("@roles", SqlDbType.NVarChar).Value = hdnRole.Value; 
+                cmd.Parameters.Add("@fromSalary", SqlDbType.Int).Value = Convert.ToInt32(txtFromSalary.Text.Trim());
+                cmd.Parameters.Add("@toSalary", SqlDbType.Int).Value = Convert.ToInt32(txtToSalary.Text.Trim());
+                cmd.Parameters.Add("@cityID", SqlDbType.Int).Value = Convert.ToInt32(hdnCity.Value);
+                cmd.Parameters.Add("@provinceID", SqlDbType.Int).Value = Convert.ToInt32(ddlProvince.SelectedValue);
+                cmd.Parameters.Add("@street", SqlDbType.NVarChar).Value = txtStreet.Text.Trim();
+                cmd.Parameters.Add("@postCode", SqlDbType.NVarChar).Value = txtStreet.Text.Trim();
+
+                SqlParameter returnParameter = new SqlParameter();
+                returnParameter.Direction = ParameterDirection.ReturnValue;
+                cmd.Parameters.Add(returnParameter);
+                cmd.ExecuteNonQuery();
+
+                int result = (int)returnParameter.Value;
+                
+            }
+            catch (Exception ex)
+            {
+                HttpContext.Current.Session["ErrorMessage"] = "Couldn't Login. Please try again later!!";
+                Response.Redirect("~/Pages/ErrorPage.aspx", false);
+            }
+            finally
+            {
+                con.Close();
+
+            }
+        }
     }
 }

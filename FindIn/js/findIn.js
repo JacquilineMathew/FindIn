@@ -420,7 +420,7 @@ function CreateValidation() {
 
 
 
-//-------------------------------------------------------------------------------------------
+//Save values to hidden fields---------------------------------------------------------------------------------------
 
 function Save() {
     var parent = document.getElementById('MainContent_pnlskillresult');

@@ -137,7 +137,7 @@
                 <tr>
 
                     <td colspan="2" align="middle">
-                        <asp:Button ID="btnCreate" runat="server" Text="Create" OnClientClick="return CreateValidation();"  />
+                        <asp:Button ID="btnCreate" runat="server" Text="Create" OnClientClick="return CreateValidation();" OnClick="btnCreate_Click"  />
                         &nbsp;&nbsp;
                                      
                        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
